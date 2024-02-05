@@ -5,3 +5,4 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: PublicRead
+      BucketName: "This is a custom name to my bucket which will replace and create new resource"
