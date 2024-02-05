@@ -1,8 +1,14 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description:
+
+Parameters:
+  InstanceTypeParameter:
+    Description: WebServer EC2
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /dev/ec2/instanceType
+
 Resources:
-  MyFirstS3Bucket:
-    Type: AWS::S3::Bucket
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
     Properties:
-      AccessControl: PublicRead
-      BucketName: "This is a custom name to my bucket which will replace and create new resource"
+      InstanceType: !Ref InstanceTypeParameter
