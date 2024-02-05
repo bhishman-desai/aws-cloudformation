@@ -8,7 +8,11 @@ Parameters:
     Default: /dev/ec2/instanceType
 
 Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+
   MyEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: !Ref InstanceTypeParameter
+    DependsOn: MyS3Bucket
